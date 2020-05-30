@@ -1,0 +1,27 @@
+{% extends "tasks/base.html" %}
+
+<style>
+  
+  
+
+</style>
+{% block body_block %}
+<div class="center-column">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Thank you for registiring!</h1>
+      {% else %}
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+  <form  method="POST" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{user_form.as_p}}
+  {{profile_form.as_p}}
+    <input type="submit" class="btn btn-info" name="" value="Register">
+    </form>
+       {% endif %}
+  </div>
+</div>
+
+{% endblock %}
+  
